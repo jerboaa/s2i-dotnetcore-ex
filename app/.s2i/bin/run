@@ -7,5 +7,6 @@ DOTNET_FRAMEWORK="netcoreapp1.1"
 echo "---> Running data migration..."
 dotnet ef -f ${DOTNET_FRAMEWORK} database update
 
-echo "---> Running application ..."
-exec dotnet run -f ${DOTNET_FRAMEWORK}
+# Delegate to running the s2i builder's
+# run script.
+exec ${STI_SCRIPTS_PATH}/run
